@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+        <h2>Welcome, {{ user.username }}!</h2>
+        <p> FILE IMPORT AND PROCESSING OF BIG ISP CLIENTS OF CAMTEL</p>
+        <h4> Steps to follow:<br>1. Click Browse to select the file you want to upload and process<br>2. click upload <br>3. click login to view upload into database<br>4. click  output to view report<br>5. select all items, choose the option "export as .xlsx" then click Go   
+        </h4>
+
+        <form action="{% url "polls:index" %}" method="POST" enctype="multipart/form-data" class="form-horizontal" id="form"> 
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="name" class="col-md-3 col-sm-3 col-xs-12 control-label" id="label"></label>
+                <div class="col-md-8">
+                    <input type="file" name="csv_file" id="csv_file" required="True" class="form-control">
+                </div>                    
+            </div>
+            <div class="form-group">                    
+                <div class="col-md-3 col-sm-3 col-xs-12 col-md-offset-3" style="margin-bottom:10px;" id="button">
+                    <button class="btn btn-primary"> <span class="glyphicon glyphicon-upload" style="margin-right:5px;"></span>Upload </button>
+                </div> 
+            </div>
+        </form>
+{% endblock %}
